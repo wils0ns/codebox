@@ -1,0 +1,6 @@
+test:
+  test-merging:    
+    param02:
+      - 2 override
+      - 3 override
+      - 4 override
