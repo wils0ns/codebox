@@ -18,7 +18,7 @@ setup(
     author='Wilson Santos',
     author_email='wilson@codeminus.org',
     url='https://gitlab.com/cathaldallan/codebox',
-    description='Saltypie - salt-api wrapper',
+    description='Python utility code collection',
     long_description=long_description,
     license='MIT',
     keywords='saltstack salt salt-api wrapper',
