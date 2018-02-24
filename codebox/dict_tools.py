@@ -1,4 +1,20 @@
 def merge(*dicts):
+    """Deep merges right the most dictionaries into the left most one.
+    
+    Args:
+        *dicts (dict): dictionaries to be merged.
+    
+    Examples:
+
+        >>> a = {'a': 1, 'b': 2}
+        >>> b = {'b': 3, 'c': {'c1': 4, 'c2': 3}}
+        >>> c = {'a': 3, 'c': {'c1': 3 }}
+        >>> print(merge(a,b,c))
+        {'c': {'c1': 3, 'c2': 3}, 'a': 3, 'b': 3}
+
+    Returns:
+        dict
+    """
 
     def _merge(dict1, dict2):
         for k in set(dict1.keys()).union(dict2.keys()):
@@ -22,11 +38,3 @@ def merge(*dicts):
         result = dict(_merge(dicts[index-1], result))
 
     return dict(result)
-
-
-
-if __name__ == '__main__':
-    a = {'a': 1, 'b': 2}
-    b = {'b': 3, 'c': {'c1': 4, 'c2': 3}}
-    c = {'a': 3, 'c': {'c1': 3 }}    
-    print(merge(a,b,c))
