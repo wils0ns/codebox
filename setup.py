@@ -27,5 +27,7 @@ setup(
         'Programming Language :: Python :: 3'
     ],
     packages=find_packages(exclude=['docs', 'tests']),
-    install_requires=[],
+    install_requires=[
+        'PyYAML'
+    ],
 )
