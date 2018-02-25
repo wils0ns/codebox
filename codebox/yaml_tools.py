@@ -5,6 +5,17 @@ from codebox import dir_tools
 from codebox import dict_tools
 
 def load(path, recursive=False):
+    """Loads and parses a file or a folder containing yaml files.
+    All existing dictorinaries will be deeply merged.
+    
+    Args:
+        path (str): File or directory path.
+        recursive (bool, optional): Defaults to False. Whether or not to include subdirectoties.
+    
+    Returns:
+        dict
+    """
+
     files = []
     if os.path.isdir(path):                
         files = dir_tools.list_files(path, recursive)

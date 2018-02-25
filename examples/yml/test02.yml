@@ -1,4 +1,5 @@
 test:
+  more-stuff: True
   test-merging:    
     param02:
       - 2 override
