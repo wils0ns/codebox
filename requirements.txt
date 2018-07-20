@@ -1,2 +1,8 @@
 PyYAML
+
+# test requeriments
+pylint
+
+# doc build requirements
 sphinx
+recommonmark
