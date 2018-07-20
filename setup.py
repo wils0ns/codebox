@@ -21,7 +21,7 @@ setup(
     description='Python utility code collection',
     long_description=long_description,
     license='MIT',
-    keywords='saltstack salt salt-api wrapper',
+    keywords='dict, yaml, dir',
     classifiers=[
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3'
