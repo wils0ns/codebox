@@ -1,10 +1,19 @@
 image: alpine
 
-pages:
+run pylint:
+  stage: test
   script:
-    - apk --no-cache add py2-pip python-dev
-    - pip install -r requirements.txt    
-    - apk --no-cache add make
+    - apk --no-cache add $(cat apk-requirements.txt)
+    - pip install -r requirements.txt
+    - pip install -e .
+    - python tests/run_pylint.py
+
+create docs page:
+  stage: deploy
+  script:
+    - apk --no-cache add $(cat apk-requirements.txt)
+    - pip install -r requirements.txt
+    - echo $CI_COMMIT_TAG > .version
     - pip install -e .
     - make html -C docs
     - mv docs/build/html/ public/
@@ -12,4 +21,18 @@ pages:
     paths:
       - public
   only:
-    - master
+    - tags
+
+publish to pypi:
+  stage: deploy
+  script:
+    - apk --no-cache add $(cat apk-requirements.txt)
+    - pip install twine
+    - echo $CI_COMMIT_TAG > .version
+    - python setup.py sdist
+    - twine upload dist/*
+  artifacts:
+    paths:
+      - dist
+  only:
+    - tags
