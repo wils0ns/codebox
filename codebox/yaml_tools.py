@@ -1,6 +1,7 @@
+"""YAML utility tools"""
 import os
-import yaml
 from re import match
+import yaml
 
 from codebox import dir_tools
 from codebox import dict_tools
@@ -29,9 +30,9 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False):
     for _file in files:
         if match_pattern and not match(match_pattern, _file):
             continue
-        with open(_file) as f:
+        with open(_file) as fobj:
             try:
-                data = dict_tools.merge(data, yaml.load(f.read()))
+                data = dict_tools.merge(data, yaml.load(fobj.read()))
             except AttributeError:
                 if not ignore_empty:
                     raise

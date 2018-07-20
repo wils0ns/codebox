@@ -1,9 +1,12 @@
+"""Dictionary utility tools"""
+
+
 def merge(*dicts):
     """Deep merges right the most dictionaries into the left most one.
-    
+
     Args:
         *dicts (dict): dictionaries to be merged.
-    
+
     Examples:
 
         >>> a = {'a': 1, 'b': 2}
@@ -30,11 +33,10 @@ def merge(*dicts):
             else:
                 yield (k, dict2[k])
 
-
     result = dict()
-    for index, d in reversed(list(enumerate(dicts))):
+    for index, _dict in reversed(list(enumerate(dicts))):
         if not result:
-            result = dict(_merge(dicts[index-1], d))
+            result = dict(_merge(dicts[index-1], _dict))
         result = dict(_merge(dicts[index-1], result))
 
     return dict(result)
