@@ -2,11 +2,12 @@
 import os
 from re import match
 import yaml
+from jinja2 import Template
 
 from codebox import dir_tools
 from codebox import dict_tools
 
-def load(path, recursive=False, match_pattern=None, ignore_empty=False):
+def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_jinja=False, jinja_context=None):
     """Loads and parses a file or a folder containing yaml files.
     All existing dictorinaries will be deeply merged.
 
@@ -31,8 +32,12 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False):
         if match_pattern and not match(match_pattern, _file):
             continue
         with open(_file) as fobj:
-            try:
-                data = dict_tools.merge(data, yaml.load(fobj.read()))
+            try:                
+                file_content = fobj.read()
+                if parse_jinja:
+                    template = Template(file_content)
+                    file_content = template.render(jinja_context or dict())
+                data = dict_tools.merge(data, yaml.load(file_content))
             except AttributeError:
                 if not ignore_empty:
                     raise
@@ -41,4 +46,4 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False):
 
 if __name__ == '__main__':
     print(load('examples/yml/', match_pattern='.*sls$'))
-    print(load('examples/yml/', ignore_empty=True))
+    print(load('examples/yml/', ignore_empty=True, parse_jinja=True, jinja_context={'jinja_test': '123'}))

@@ -5,3 +5,6 @@
 dist/
 *.pyc
 build/
+venv
+*.eggs
+py*env/

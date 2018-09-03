@@ -28,6 +28,7 @@ setup(
     ],
     packages=find_packages(exclude=['docs', 'tests']),
     install_requires=[
-        'PyYAML'
+        'PyYAML',
+        'jinja2'
     ],
 )
