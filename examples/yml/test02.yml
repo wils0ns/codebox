@@ -1,7 +1,8 @@
 test:
   more-stuff: True
-  test-merging:    
+  test-merging:
     param02:
       - 2 override
       - 3 override
+      - {{ jinja_test }}
       - 4 override
