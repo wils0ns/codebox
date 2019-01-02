@@ -13,6 +13,7 @@ Welcome to codebox's documentation!
    dict_tools
    dir_tools
    yaml_tools
+   file_tools
 
 Indices and tables
 ==================
