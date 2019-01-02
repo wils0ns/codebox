@@ -1,0 +1,2 @@
+Replace {{version}} with 2.2.2.
+Also replace 0.0.0 with 1.1.1 and repeat 1.1.1 here: 0.0.0

@@ -32,7 +32,7 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_ji
         if match_pattern and not match(match_pattern, _file):
             continue
         with open(_file) as fobj:
-            try:                
+            try:
                 file_content = fobj.read()
                 if parse_jinja:
                     template = Template(file_content)
