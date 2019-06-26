@@ -37,7 +37,9 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_ji
                 if parse_jinja:
                     template = Template(file_content)
                     file_content = template.render(jinja_context or dict())
-                data = dict_tools.merge(data, yaml.load(file_content))
+
+                data = dict_tools.merge(data, yaml.load(file_content, Loader=yaml.FullLoader))
+
             except AttributeError:
                 if not ignore_empty:
                     raise
