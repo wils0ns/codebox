@@ -1,4 +1,4 @@
-codebox - Python utility code collection.
+codebox - Python tools collection.
 -----------------------------------------
 
 Installation
