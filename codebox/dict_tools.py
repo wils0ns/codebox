@@ -2,7 +2,7 @@
 
 
 def merge(*dicts):
-    """Deep merges right the most dictionaries into the left most one.
+    """Deep merges the right most dictionaries into the left most one.
 
     Args:
         *dicts (dict): dictionaries to be merged.

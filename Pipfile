@@ -5,10 +5,15 @@ name = "pypi"
 
 [dev-packages]
 codebox = {path = ".", editable = true}
+pytest = "*"
+pytest-cov = "*"
+sphinx = "*"
+recommonmark = "*"
+pylint = "*"
 
 [packages]
 pyyaml = "*"
-"jinja2" = "*"
+jinja2 = "*"
 
-[requires]
-python_version = "2.7"
+[scripts]
+test = "pytest --verbose --cov codebox"

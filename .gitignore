@@ -1,6 +1,7 @@
 .vagrant
 .vscode
 .idea
+.coverage
 *.egg-info
 dist/
 *.pyc
