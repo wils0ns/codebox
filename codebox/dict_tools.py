@@ -1,7 +1,8 @@
 """Dictionary utility tools"""
+from typing import Any
 
 
-def merge(*dicts):
+def merge(*dicts: dict) -> dict:
     """Deep merges the right most dictionaries into the left most one.
 
     Args:
@@ -42,7 +43,7 @@ def merge(*dicts):
     return dict(result)
 
 
-def get_nested(the_dict, nested_key, default=None):
+def get_nested(the_dict: dict, nested_key: str, default: Any = None) -> Any:
     """
     Returns the value of a nested key in an dictorinary
 
@@ -79,7 +80,7 @@ def get_nested(the_dict, nested_key, default=None):
             return default
 
 
-def update_nested(the_dict, nested_key, value):
+def update_nested(the_dict: dict, nested_key: str, value: Any):
     """
     Updates nested keys inside a dictionary
 

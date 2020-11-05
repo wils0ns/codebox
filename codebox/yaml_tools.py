@@ -1,13 +1,16 @@
 """YAML utility tools"""
 import os
 from re import match
+
 import yaml
 from jinja2 import Template
 
 from codebox import dir_tools
 from codebox import dict_tools
 
-def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_jinja=False, jinja_context=None):
+
+def load(path: str, recursive: bool = False, match_pattern: str = None, ignore_empty: bool = False,
+         parse_jinja: bool = False, jinja_context: dict = None) -> dict:
     """Loads and parses a file or a folder containing yaml files.
     All existing dictorinaries will be deeply merged.
 
@@ -17,8 +20,12 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_ji
         match_pattern (str, optional): A regular expression to be used to filter the files to be load
             based on the file's full name.
         ignore_empty (bool, optional): Whether or not to ignore empty files.
+        parse_jinja (bool, optional): Whether or not to parse Jinja code.
+        jinja_context (dict, optional): The Jinja Context.
+
     Returns:
         dict
+
     """
 
     files = []
@@ -38,7 +45,8 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_ji
                     template = Template(file_content)
                     file_content = template.render(jinja_context or dict())
 
-                data = dict_tools.merge(data, yaml.load(file_content, Loader=yaml.FullLoader))
+                data = dict_tools.merge(data, yaml.load(
+                    file_content, Loader=yaml.FullLoader))
 
             except AttributeError:
                 if not ignore_empty:
@@ -46,6 +54,8 @@ def load(path, recursive=False, match_pattern=None, ignore_empty=False, parse_ji
 
     return data
 
+
 if __name__ == '__main__':
     print(load('examples/yml/', match_pattern='.*sls$'))
-    print(load('examples/yml/', ignore_empty=True, parse_jinja=True, jinja_context={'jinja_test': '123'}))
+    print(load('examples/yml/', ignore_empty=True,
+               parse_jinja=True, jinja_context={'jinja_test': '123'}))

@@ -35,13 +35,16 @@
 <span></span><span class="sd">&quot;&quot;&quot;YAML utility tools&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="n">match</span>
+
 <span class="kn">import</span> <span class="nn">yaml</span>
 <span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
 
 <span class="kn">from</span> <span class="nn">codebox</span> <span class="kn">import</span> <span class="n">dir_tools</span>
 <span class="kn">from</span> <span class="nn">codebox</span> <span class="kn">import</span> <span class="n">dict_tools</span>
 
-<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../yaml_tools.html#codebox.yaml_tools.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">match_pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore_empty</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">parse_jinja</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">jinja_context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../yaml_tools.html#codebox.yaml_tools.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">recursive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">match_pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ignore_empty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+         <span class="n">parse_jinja</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">jinja_context</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Loads and parses a file or a folder containing yaml files.</span>
 <span class="sd">    All existing dictorinaries will be deeply merged.</span>
 
@@ -51,8 +54,12 @@
 <span class="sd">        match_pattern (str, optional): A regular expression to be used to filter the files to be load</span>
 <span class="sd">            based on the file&#39;s full name.</span>
 <span class="sd">        ignore_empty (bool, optional): Whether or not to ignore empty files.</span>
+<span class="sd">        parse_jinja (bool, optional): Whether or not to parse Jinja code.</span>
+<span class="sd">        jinja_context (dict, optional): The Jinja Context.</span>
+
 <span class="sd">    Returns:</span>
 <span class="sd">        dict</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
@@ -72,7 +79,8 @@
                     <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
                     <span class="n">file_content</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">jinja_context</span> <span class="ow">or</span> <span class="nb">dict</span><span class="p">())</span>
 
-                <span class="n">data</span> <span class="o">=</span> <span class="n">dict_tools</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_content</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">))</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">dict_tools</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+                    <span class="n">file_content</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">))</span>
 
             <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_empty</span><span class="p">:</span>
@@ -80,9 +88,11 @@
 
     <span class="k">return</span> <span class="n">data</span></div>
 
+
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;examples/yml/&#39;</span><span class="p">,</span> <span class="n">match_pattern</span><span class="o">=</span><span class="s1">&#39;.*sls$&#39;</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;examples/yml/&#39;</span><span class="p">,</span> <span class="n">ignore_empty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parse_jinja</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">jinja_context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;jinja_test&#39;</span><span class="p">:</span> <span class="s1">&#39;123&#39;</span><span class="p">}))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;examples/yml/&#39;</span><span class="p">,</span> <span class="n">ignore_empty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+               <span class="n">parse_jinja</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">jinja_context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;jinja_test&#39;</span><span class="p">:</span> <span class="s1">&#39;123&#39;</span><span class="p">}))</span>
 </pre></div>
 
           </div>

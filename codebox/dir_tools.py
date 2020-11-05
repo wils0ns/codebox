@@ -1,8 +1,9 @@
 """Directory utility tools"""
 import os
+from typing import Iterator
 
 
-def list_files(path, recursive=False):
+def list_files(path: str, recursive: bool = False) -> Iterator[str]:
     """List of the absolute path of all files within a folder.
 
     Args:
