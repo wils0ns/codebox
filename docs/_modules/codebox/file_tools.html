@@ -47,13 +47,10 @@
 <span class="sd">            the value is the content to replace the match with</span>
 
 <span class="sd">    Example:</span>
-<span class="sd">        file_map {</span>
-<span class="sd">            &#39;/tmp/source.txt&#39;: &#39;/tmp/destination.txt&#39;</span>
-<span class="sd">        }</span>
-<span class="sd">        replace_map {</span>
-<span class="sd">            &#39;.*foo.*&#39;: &#39;bar&#39;</span>
-<span class="sd">        }</span>
-<span class="sd">        replace_in_files(file_map, replace_map)</span>
+
+<span class="sd">        &gt;&gt;&gt; file_map = {&#39;/tmp/source.txt&#39;: &#39;/tmp/destination.txt&#39;}</span>
+<span class="sd">        &gt;&gt;&gt; replace_map = {&#39;.*foo.*&#39;: &#39;bar&#39;}</span>
+<span class="sd">        &gt;&gt;&gt; replace_in_files(file_map, replace_map)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">file_src_path</span><span class="p">,</span> <span class="n">file_dst_path</span> <span class="ow">in</span> <span class="n">files_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>

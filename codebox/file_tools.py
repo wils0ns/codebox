@@ -13,13 +13,10 @@ def replace_in_files(files_map, replace_map):
             the value is the content to replace the match with
 
     Example:
-        file_map {
-            '/tmp/source.txt': '/tmp/destination.txt'
-        }
-        replace_map {
-            '.*foo.*': 'bar'
-        }
-        replace_in_files(file_map, replace_map)
+
+        >>> file_map = {'/tmp/source.txt': '/tmp/destination.txt'}
+        >>> replace_map = {'.*foo.*': 'bar'}
+        >>> replace_in_files(file_map, replace_map)
 
     """
     for file_src_path, file_dst_path in files_map.items():

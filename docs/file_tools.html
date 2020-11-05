@@ -50,17 +50,11 @@ the value is the content to replace the match with</p></li>
 </dd>
 </dl>
 <p class="rubric">Example</p>
-<dl class="simple">
-<dt>file_map {</dt><dd><p>‘/tmp/source.txt’: ‘/tmp/destination.txt’</p>
-</dd>
-</dl>
-<p>}
-replace_map {</p>
-<blockquote>
-<div><p>‘.*foo.*’: ‘bar’</p>
-</div></blockquote>
-<p>}
-replace_in_files(file_map, replace_map)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;/tmp/source.txt&#39;</span><span class="p">:</span> <span class="s1">&#39;/tmp/destination.txt&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_map</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;.*foo.*&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">replace_in_files</span><span class="p">(</span><span class="n">file_map</span><span class="p">,</span> <span class="n">replace_map</span><span class="p">)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </div>
