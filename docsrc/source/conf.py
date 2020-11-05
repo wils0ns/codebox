@@ -47,7 +47,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
-    'sphinx_autodoc_typehints',
+    # 'sphinx_autodoc_typehints',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -171,3 +171,5 @@ texinfo_documents = [
 
 # -- Extension configuration -------------------------------------------------
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
+
+# napoleon_use_param = True

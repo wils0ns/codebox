@@ -38,7 +38,7 @@
 <p>YAML utility tools</p>
 <dl class="py function">
 <dt id="codebox.yaml_tools.load">
-<code class="sig-prename descclassname">codebox.yaml_tools.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span></em>, <em class="sig-param"><span class="n">recursive</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">match_pattern</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ignore_empty</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">parse_jinja</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">jinja_context</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/yaml_tools.html#load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.yaml_tools.load" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">codebox.yaml_tools.</code><code class="sig-name descname">load</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">recursive</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">match_pattern</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">ignore_empty</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">parse_jinja</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">jinja_context</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a><a class="reference internal" href="_modules/codebox/yaml_tools.html#load"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.yaml_tools.load" title="Permalink to this definition">¶</a></dt>
 <dd><p>Loads and parses a file or a folder containing yaml files.
 All existing dictorinaries will be deeply merged.</p>
 <dl class="field-list simple">
@@ -53,11 +53,8 @@ based on the file’s full name.</p></li>
 <li><p><strong>jinja_context</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a><em>, </em><em>optional</em>) – The Jinja Context.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
-</dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>dict</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>

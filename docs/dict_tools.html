@@ -38,14 +38,14 @@
 <p>Dictionary utility tools</p>
 <dl class="py function">
 <dt id="codebox.dict_tools.get_nested">
-<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">get_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">the_dict</span></em>, <em class="sig-param"><span class="n">nested_key</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/dict_tools.html#get_nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.get_nested" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">get_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">the_dict</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">nested_key</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/codebox/dict_tools.html#get_nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.get_nested" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the value of a nested key in an dictorinary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>the_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – The dictionary to get the nested value from</p></li>
 <li><p><strong>nested_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The nested key</p></li>
-<li><p><strong>default</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code></a>[<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>]) – The value to be returned if the key is not found</p></li>
+<li><p><strong>default</strong> – The value to be returned if the key is not found</p></li>
 </ul>
 </dd>
 </dl>
@@ -58,16 +58,11 @@
 <span class="go">&#39;not found&#39;</span>
 </pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a></p>
-</dd>
-</dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="codebox.dict_tools.merge">
-<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">dicts</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/dict_tools.html#merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.merge" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">dicts</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a><a class="reference internal" href="_modules/codebox/dict_tools.html#merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deep merges the right most dictionaries into the left most one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -83,25 +78,22 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></a></p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>dict</p>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>dict</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="codebox.dict_tools.update_nested">
-<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">update_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">the_dict</span></em>, <em class="sig-param"><span class="n">nested_key</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/dict_tools.html#update_nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.update_nested" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">update_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">the_dict</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">nested_key</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/dict_tools.html#update_nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.update_nested" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates nested keys inside a dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>the_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – The dictionary to be updated</p></li>
 <li><p><strong>nested_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The nested key</p></li>
-<li><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.9)"><code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code></a>) – The value to be set to the nested key</p></li>
+<li><p><strong>value</strong> – The value to be set to the nested key</p></li>
 </ul>
 </dd>
 </dl>
