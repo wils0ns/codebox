@@ -8,6 +8,7 @@ codebox = {path = ".", editable = true}
 pytest = "*"
 pytest-cov = "*"
 sphinx = "*"
+sphinx-autodoc-typehints = "*"
 recommonmark = "*"
 pylint = "*"
 

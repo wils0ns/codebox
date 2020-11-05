@@ -47,6 +47,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinx.ext.intersphinx',
     'sphinx.ext.napoleon',
+    'sphinx_autodoc_typehints',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -59,7 +60,7 @@ source_suffix = ['.rst', '.md']
 # source_suffix = '.rst'
 
 source_parsers = {
-   '.md': 'recommonmark.parser.CommonMarkParser',
+    '.md': 'recommonmark.parser.CommonMarkParser',
 }
 
 # The master toctree document.
