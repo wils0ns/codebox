@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codebox: File utilities &#8212; codebox  documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="codebox: YAML utilities" href="yaml_tools.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-codebox.file_tools">
+<span id="codebox-file-utilities"></span><h1>codebox: File utilities<a class="headerlink" href="#module-codebox.file_tools" title="Permalink to this headline">¶</a></h1>
+<p>File utility tools</p>
+<dl class="py function">
+<dt id="codebox.file_tools.replace_in_files">
+<code class="sig-prename descclassname">codebox.file_tools.</code><code class="sig-name descname">replace_in_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files_map</span></em>, <em class="sig-param"><span class="n">replace_map</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/file_tools.html#replace_in_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.file_tools.replace_in_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces a series of matches in a collection of files</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_paths</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – A dictionary where the key is the file source and the value is a file target.
+If the target is set to an empty string, the original file will be replaced</p></li>
+<li><p><strong>replace_map</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – A dictionary where the keys are the regex to be matched and
+the value is the content to replace the match with</p></li>
+</ul>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<dl class="simple">
+<dt>file_map {</dt><dd><p>‘/tmp/source.txt’: ‘/tmp/destination.txt’</p>
+</dd>
+</dl>
+<p>}
+replace_map {</p>
+<blockquote>
+<div><p>‘.*foo.*’: ‘bar’</p>
+</div></blockquote>
+<p>}
+replace_in_files(file_map, replace_map)</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dict_tools.html">codebox: Dictionary utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dir_tools.html">codebox: Directory utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yaml_tools.html">codebox: YAML utilities</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">codebox: File utilities</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Wilson Santos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/file_tools.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

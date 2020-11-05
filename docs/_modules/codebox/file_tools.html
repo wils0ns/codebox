@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codebox.file_tools &#8212; codebox  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for codebox.file_tools</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;File utility tools&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<div class="viewcode-block" id="replace_in_files"><a class="viewcode-back" href="../../file_tools.html#codebox.file_tools.replace_in_files">[docs]</a><span class="k">def</span> <span class="nf">replace_in_files</span><span class="p">(</span><span class="n">files_map</span><span class="p">,</span> <span class="n">replace_map</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replaces a series of matches in a collection of files</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        file_paths (dict): A dictionary where the key is the file source and the value is a file target.</span>
+<span class="sd">            If the target is set to an empty string, the original file will be replaced</span>
+<span class="sd">        replace_map (dict): A dictionary where the keys are the regex to be matched and</span>
+<span class="sd">            the value is the content to replace the match with</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        file_map {</span>
+<span class="sd">            &#39;/tmp/source.txt&#39;: &#39;/tmp/destination.txt&#39;</span>
+<span class="sd">        }</span>
+<span class="sd">        replace_map {</span>
+<span class="sd">            &#39;.*foo.*&#39;: &#39;bar&#39;</span>
+<span class="sd">        }</span>
+<span class="sd">        replace_in_files(file_map, replace_map)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">file_src_path</span><span class="p">,</span> <span class="n">file_dst_path</span> <span class="ow">in</span> <span class="n">files_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_src_path</span><span class="p">,</span> <span class="s1">&#39;r+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">src_file</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">src_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="k">for</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">replace_value</span> <span class="ow">in</span> <span class="n">replace_map</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">new_data</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">replace_value</span><span class="p">,</span>
+                                  <span class="n">new_data</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">file_dst_path</span><span class="p">:</span>
+                <span class="n">src_file</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">src_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span>
+                <span class="n">src_file</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_dst_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">dest_file</span><span class="p">:</span>
+                    <span class="n">dest_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">new_data</span><span class="p">)</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dict_tools.html">codebox: Dictionary utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dir_tools.html">codebox: Directory utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yaml_tools.html">codebox: YAML utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file_tools.html">codebox: File utilities</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Wilson Santos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

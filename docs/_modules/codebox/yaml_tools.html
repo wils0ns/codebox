@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>codebox.yaml_tools &#8212; codebox  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for codebox.yaml_tools</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;YAML utility tools&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">re</span> <span class="kn">import</span> <span class="n">match</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">jinja2</span> <span class="kn">import</span> <span class="n">Template</span>
+
+<span class="kn">from</span> <span class="nn">codebox</span> <span class="kn">import</span> <span class="n">dir_tools</span>
+<span class="kn">from</span> <span class="nn">codebox</span> <span class="kn">import</span> <span class="n">dict_tools</span>
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../yaml_tools.html#codebox.yaml_tools.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">match_pattern</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ignore_empty</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">parse_jinja</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">jinja_context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Loads and parses a file or a folder containing yaml files.</span>
+<span class="sd">    All existing dictorinaries will be deeply merged.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): File or directory path.</span>
+<span class="sd">        recursive (bool, optional): Defaults to False. Whether or not to include subdirectoties.</span>
+<span class="sd">        match_pattern (str, optional): A regular expression to be used to filter the files to be load</span>
+<span class="sd">            based on the file&#39;s full name.</span>
+<span class="sd">        ignore_empty (bool, optional): Whether or not to ignore empty files.</span>
+<span class="sd">    Returns:</span>
+<span class="sd">        dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="n">dir_tools</span><span class="o">.</span><span class="n">list_files</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">recursive</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">path</span><span class="p">]</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">_file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">match_pattern</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">match</span><span class="p">(</span><span class="n">match_pattern</span><span class="p">,</span> <span class="n">_file</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">fobj</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">file_content</span> <span class="o">=</span> <span class="n">fobj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">parse_jinja</span><span class="p">:</span>
+                    <span class="n">template</span> <span class="o">=</span> <span class="n">Template</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+                    <span class="n">file_content</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">jinja_context</span> <span class="ow">or</span> <span class="nb">dict</span><span class="p">())</span>
+
+                <span class="n">data</span> <span class="o">=</span> <span class="n">dict_tools</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">yaml</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file_content</span><span class="p">,</span> <span class="n">Loader</span><span class="o">=</span><span class="n">yaml</span><span class="o">.</span><span class="n">FullLoader</span><span class="p">))</span>
+
+            <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">ignore_empty</span><span class="p">:</span>
+                    <span class="k">raise</span>
+
+    <span class="k">return</span> <span class="n">data</span></div>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;examples/yml/&#39;</span><span class="p">,</span> <span class="n">match_pattern</span><span class="o">=</span><span class="s1">&#39;.*sls$&#39;</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;examples/yml/&#39;</span><span class="p">,</span> <span class="n">ignore_empty</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">parse_jinja</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">jinja_context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;jinja_test&#39;</span><span class="p">:</span> <span class="s1">&#39;123&#39;</span><span class="p">}))</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h3><a href="../../index.html">Table of Contents</a></h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../dict_tools.html">codebox: Dictionary utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dir_tools.html">codebox: Directory utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../yaml_tools.html">codebox: YAML utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../file_tools.html">codebox: File utilities</a></li>
+</ul>
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2018, Wilson Santos.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
