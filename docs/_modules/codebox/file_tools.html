@@ -34,9 +34,10 @@
   <h1>Source code for codebox.file_tools</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;File utility tools&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Mapping</span>
 
 
-<div class="viewcode-block" id="replace_in_files"><a class="viewcode-back" href="../../file_tools.html#codebox.file_tools.replace_in_files">[docs]</a><span class="k">def</span> <span class="nf">replace_in_files</span><span class="p">(</span><span class="n">files_map</span><span class="p">,</span> <span class="n">replace_map</span><span class="p">):</span>
+<div class="viewcode-block" id="replace_in_files"><a class="viewcode-back" href="../../file_tools.html#codebox.file_tools.replace_in_files">[docs]</a><span class="k">def</span> <span class="nf">replace_in_files</span><span class="p">(</span><span class="n">files_map</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span> <span class="n">replace_map</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Replaces a series of matches in a collection of files</span>
 

@@ -1,8 +1,9 @@
 """File utility tools"""
 import re
+from typing import Mapping
 
 
-def replace_in_files(files_map, replace_map):
+def replace_in_files(files_map: Mapping[str, str], replace_map: Mapping[str, str]):
     """
     Replaces a series of matches in a collection of files
 
