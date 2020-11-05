@@ -20,7 +20,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'codebox'
-copyright = '2018, Wilson Santos'
+copyright = '2020, Wilson Santos'
 author = 'Wilson Santos'
 
 # The short X.Y version
