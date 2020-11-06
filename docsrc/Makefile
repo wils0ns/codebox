@@ -13,7 +13,7 @@ help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 gh-page:
-	@make html
+	@make clean html
 	@cp -a build/html/. ../docs/
 
 .PHONY: help Makefile
