@@ -12,4 +12,4 @@ Installation
 Documentation
 =============
 
-https://cathaldallan.gitlab.io/codebox
+https://wils0ns.github.io/codebox/
