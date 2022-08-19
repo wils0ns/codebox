@@ -6,6 +6,7 @@ authors = ["Wilson Santos <wilson@codeminus.org>"]
 license = "MIT"
 repository = "https://github.com/wils0ns/codebox"
 documentation = "https://wils0ns.github.io/codebox/"
+readme = "README.rst"
 
 # exclude = ["tests", "docs"]
 
