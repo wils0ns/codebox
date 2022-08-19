@@ -1,0 +1,4 @@
+b:
+  b1: ["expected"]
+  b2: b2
+c: "{{ replace }}"

@@ -1,3 +1,0 @@
-make
-py2-pip
-python-dev

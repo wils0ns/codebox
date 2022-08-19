@@ -37,8 +37,8 @@ def merge(*dicts: dict) -> dict:
     result = dict()
     for index, _dict in reversed(list(enumerate(dicts))):
         if not result:
-            result = dict(_merge(dicts[index-1], _dict))
-        result = dict(_merge(dicts[index-1], result))
+            result = dict(_merge(dicts[index - 1], _dict))
+        result = dict(_merge(dicts[index - 1], result))
 
     return dict(result)
 
@@ -63,9 +63,9 @@ def get_nested(the_dict: dict, nested_key: str, default: Any = None) -> Any:
 
     """
 
-    keys = nested_key.split(':')
+    keys = nested_key.split(":")
 
-    if not hasattr(the_dict, '__iter__'):
+    if not hasattr(the_dict, "__iter__"):
         return default
 
     if len(keys) == 1:
@@ -73,11 +73,11 @@ def get_nested(the_dict: dict, nested_key: str, default: Any = None) -> Any:
             return the_dict[keys[0]]
         else:
             return default
+
+    if keys[0] in the_dict:
+        return get_nested(the_dict[keys[0]], ":".join(keys[1:]), default)
     else:
-        if keys[0] in the_dict:
-            return get_nested(the_dict[keys[0]], ':'.join(keys[1:]), default)
-        else:
-            return default
+        return default
 
 
 def update_nested(the_dict: dict, nested_key: str, value: Any):
@@ -101,13 +101,13 @@ def update_nested(the_dict: dict, nested_key: str, value: Any):
         >>> t
         {'a': {'b': {'c': 2, 'd': 1}}}
     """
-    keys = nested_key.split(':')
+    keys = nested_key.split(":")
 
     if len(keys) == 1:
         the_dict.update({keys[0]: value})
     else:
         if keys[0] not in the_dict:
             the_dict[keys[0]] = {}
-        update_nested(the_dict[keys[0]], ':'.join(keys[1:]), value)
+        update_nested(the_dict[keys[0]], ":".join(keys[1:]), value)
 
     return the_dict

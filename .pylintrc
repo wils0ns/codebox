@@ -1,3 +1,6 @@
+[MASTER]
+ignore-patterns=**/tests/**/*.py
+
 [MESSAGES CONTROL]
 disable=import-error
     # missing-docstring
@@ -20,9 +23,6 @@ reports=yes
 
 [VARIABLES]
 
-# List of additional names supposed to be defined in builtins. Remember that
-# you should avoid to define new builtins when possible.
-additional-bultins=
 
 [DESIGN]
 
