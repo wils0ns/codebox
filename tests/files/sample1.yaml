@@ -1,0 +1,4 @@
+a: 1
+b:
+  c: ["c-value from sample1"]
+  d: d-value

@@ -9,18 +9,24 @@ from codebox import dir_tools
 from codebox import dict_tools
 
 
-def load(path: str, recursive: bool = False, match_pattern: str = None, ignore_empty: bool = False,
-         parse_jinja: bool = False, jinja_context: dict = None) -> dict:
+def load(
+    path: str,
+    recursive: bool = False,
+    match_pattern: str = None,
+    ignore_empty: bool = False,
+    parse_jinja: bool = False,
+    jinja_context: dict = None,
+) -> dict:
     """Loads and parses a file or a folder containing yaml files.
-    All existing dictorinaries will be deeply merged.
+    All existing dictionaries will be deeply merged.
 
     Args:
         path (str): File or directory path.
         recursive (bool, optional): Defaults to False. Whether or not to include subdirectoties.
         match_pattern (str, optional): A regular expression to be used to filter the files to be load
             based on the file's full name.
-        ignore_empty (bool, optional): Whether or not to ignore empty files.
-        parse_jinja (bool, optional): Whether or not to parse Jinja code.
+        ignore_empty (bool, optional): Whether to ignore empty files.
+        parse_jinja (bool, optional): Whether to parse Jinja code.
         jinja_context (dict, optional): The Jinja Context.
 
     Returns:
@@ -45,8 +51,7 @@ def load(path: str, recursive: bool = False, match_pattern: str = None, ignore_e
                     template = Template(file_content)
                     file_content = template.render(jinja_context or dict())
 
-                data = dict_tools.merge(data, yaml.load(
-                    file_content, Loader=yaml.FullLoader))
+                data = dict_tools.merge(data, yaml.load(file_content, Loader=yaml.FullLoader))
 
             except AttributeError:
                 if not ignore_empty:
@@ -55,7 +60,6 @@ def load(path: str, recursive: bool = False, match_pattern: str = None, ignore_e
     return data
 
 
-if __name__ == '__main__':
-    print(load('examples/yml/', match_pattern='.*sls$'))
-    print(load('examples/yml/', ignore_empty=True,
-               parse_jinja=True, jinja_context={'jinja_test': '123'}))
+if __name__ == "__main__":
+    print(load("examples/yml/", match_pattern=".*sls$"))
+    print(load("examples/yml/", ignore_empty=True, parse_jinja=True, jinja_context={"jinja_test": "123"}))
