@@ -1,18 +1,19 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>codebox: Dictionary utilities &#8212; codebox  documentation</title>
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
-    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="codebox: Directory utilities" href="dir_tools.html" />
@@ -33,18 +34,18 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-codebox.dict_tools">
-<span id="codebox-dictionary-utilities"></span><h1>codebox: Dictionary utilities<a class="headerlink" href="#module-codebox.dict_tools" title="Permalink to this headline">¶</a></h1>
+  <section id="module-codebox.dict_tools">
+<span id="codebox-dictionary-utilities"></span><h1>codebox: Dictionary utilities<a class="headerlink" href="#module-codebox.dict_tools" title="Permalink to this heading">¶</a></h1>
 <p>Dictionary utility tools</p>
 <dl class="py function">
-<dt id="codebox.dict_tools.get_nested">
-<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">get_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">the_dict</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">nested_key</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Any<a class="reference internal" href="_modules/codebox/dict_tools.html#get_nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.get_nested" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="codebox.dict_tools.get_nested">
+<span class="sig-prename descclassname"><span class="pre">codebox.dict_tools.</span></span><span class="sig-name descname"><span class="pre">get_nested</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">the_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.10)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><span class="pre">Any</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><span class="pre">Any</span></a></span></span><a class="reference internal" href="_modules/codebox/dict_tools.html#get_nested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#codebox.dict_tools.get_nested" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the value of a nested key in an dictorinary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>the_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – The dictionary to get the nested value from</p></li>
-<li><p><strong>nested_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The nested key</p></li>
+<li><p><strong>the_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – The dictionary to get the nested value from</p></li>
+<li><p><strong>nested_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The nested key</p></li>
 <li><p><strong>default</strong> – The value to be returned if the key is not found</p></li>
 </ul>
 </dd>
@@ -61,12 +62,12 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="codebox.dict_tools.merge">
-<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">merge</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">dicts</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a><a class="reference internal" href="_modules/codebox/dict_tools.html#merge"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.merge" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="codebox.dict_tools.merge">
+<span class="sig-prename descclassname"><span class="pre">codebox.dict_tools.</span></span><span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">dicts</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></span><a class="reference internal" href="_modules/codebox/dict_tools.html#merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#codebox.dict_tools.merge" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deep merges the right most dictionaries into the left most one.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>*dicts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – dictionaries to be merged.</p>
+<dd class="field-odd"><p><strong>*dicts</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – dictionaries to be merged.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
@@ -85,14 +86,14 @@
 </dd></dl>
 
 <dl class="py function">
-<dt id="codebox.dict_tools.update_nested">
-<code class="sig-prename descclassname">codebox.dict_tools.</code><code class="sig-name descname">update_nested</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">the_dict</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)">dict</a></span></em>, <em class="sig-param"><span class="n">nested_key</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)">str</a></span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/dict_tools.html#update_nested"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#codebox.dict_tools.update_nested" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="codebox.dict_tools.update_nested">
+<span class="sig-prename descclassname"><span class="pre">codebox.dict_tools.</span></span><span class="sig-name descname"><span class="pre">update_nested</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">the_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><span class="pre">dict</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">nested_key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.10)"><span class="pre">Any</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/codebox/dict_tools.html#update_nested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#codebox.dict_tools.update_nested" title="Permalink to this definition">¶</a></dt>
 <dd><p>Updates nested keys inside a dictionary</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>the_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.9)"><em>dict</em></a>) – The dictionary to be updated</p></li>
-<li><p><strong>nested_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><em>str</em></a>) – The nested key</p></li>
+<li><p><strong>the_dict</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – The dictionary to be updated</p></li>
+<li><p><strong>nested_key</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – The nested key</p></li>
 <li><p><strong>value</strong> – The value to be set to the nested key</p></li>
 </ul>
 </dd>
@@ -112,7 +113,7 @@
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
           </div>
@@ -122,7 +123,7 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h3><a href="index.html">Table of Contents</a></h3>
-<p class="caption"><span class="caption-text">Contents:</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">codebox: Dictionary utilities</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dir_tools.html">codebox: Directory utilities</a></li>
@@ -134,12 +135,12 @@
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -148,7 +149,7 @@
       &copy;2020, Wilson Santos.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.3.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.1.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

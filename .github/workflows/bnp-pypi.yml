@@ -1,13 +1,14 @@
-on:
-  push:
-    branches:
-      - "*"
+name: CI
+
+on: [push]
 
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
 
       - uses: actions/setup-python@v2
         with:
@@ -37,4 +38,12 @@ jobs:
 
       - run: poetry install --no-interaction
 
+      - name: Code Quality
+        run: poetry run black . --check
+
       - run: poetry run pytest
+
+      - run: poetry build
+
+      - run: poetry config pypi-token.pypi ${{ secrets.PYPI_PASSWORD }}
+        if: "{{ github.ref == 'ref/head/master' }}"
