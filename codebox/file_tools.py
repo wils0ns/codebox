@@ -21,16 +21,15 @@ def replace_in_files(files_map: Mapping[str, str], replace_map: Mapping[str, str
 
     """
     for file_src_path, file_dst_path in files_map.items():
-        with open(file_src_path, 'r+') as src_file:
+        with open(file_src_path, "r+") as src_file:
             data = src_file.read()
             new_data = data
             for pattern, replace_value in replace_map.items():
-                new_data = re.sub(pattern, replace_value,
-                                  new_data, flags=re.DOTALL)
+                new_data = re.sub(pattern, replace_value, new_data, flags=re.DOTALL)
             if not file_dst_path:
                 src_file.seek(0)
                 src_file.write(new_data)
                 src_file.truncate()
             else:
-                with open(file_dst_path, 'w') as dest_file:
+                with open(file_dst_path, "w") as dest_file:
                     dest_file.write(new_data)
