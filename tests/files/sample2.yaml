@@ -1,3 +1,4 @@
 b:
-  c: ["c-value from sample2"]
-  d: d-value
+  b1: ["expected"]
+  b2: b2
+c: "{{ replace }}"

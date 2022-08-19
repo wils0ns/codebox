@@ -1,4 +1,4 @@
 a: 1
 b:
-  c: ["c-value from sample1"]
-  d: d-value
+  b1: ["c-value from sample1"]
+  b2: d-value

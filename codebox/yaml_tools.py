@@ -19,6 +19,7 @@ def load(
 ) -> dict:
     """Loads and parses a file or a folder containing yaml files.
     All existing dictionaries will be deeply merged.
+    Merge order respects file path sorted by name.
 
     Args:
         path (str): File or directory path.
@@ -36,7 +37,7 @@ def load(
 
     files = []
     if os.path.isdir(path):
-        files = dir_tools.list_files(path, recursive)
+        files = sorted(dir_tools.list_files(path, recursive))
     else:
         files = [path]
 
@@ -58,8 +59,3 @@ def load(
                     raise
 
     return data
-
-
-if __name__ == "__main__":
-    print(load("examples/yml/", match_pattern=".*sls$"))
-    print(load("examples/yml/", ignore_empty=True, parse_jinja=True, jinja_context={"jinja_test": "123"}))
