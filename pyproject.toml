@@ -35,14 +35,16 @@ color = false
 line_length = 120
 profile = "black"
 
+[tool.pytest.ini_options]
+# pythonpath = ["."]
 addopts = [
-    "--durations=10",
-    # "--cov=codebox",
+    # "--durations=10",
+    "--cov=codebox",
     "--cov-config=.coveragerc",
     "--cov-report=term-missing",
-    "--cov-report=html",
-    "--cov-report=xml",
-    "--cov-append",
+    # "--cov-report=html",
+    # "--cov-report=xml",
+
 ]
 
 log_cli = true

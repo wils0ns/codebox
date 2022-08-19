@@ -10,3 +10,4 @@ venv
 *.egg*
 .pytest*
 __pycache__
+*.log
