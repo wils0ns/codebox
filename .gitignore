@@ -9,5 +9,4 @@ build/
 venv
 *.egg*
 .pytest*
-*
 __pycache__
