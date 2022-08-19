@@ -7,5 +7,7 @@ dist/
 *.pyc
 build/
 venv
-*.eggs
-py*env/
+*.egg*
+.pytest*
+*
+__pycache__

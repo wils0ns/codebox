@@ -1,8 +1,10 @@
 PyYAML
 jinja2
 
-# test requeriments
+# test requirements
 pylint
+pytest
+pytest-cov
 
 # doc build requirements
 sphinx
