@@ -33,9 +33,12 @@ def test_get_nested():
     assert get_nested({"a": {"b": {"c": 1}}}, "a:b:c") == 1
     assert get_nested(None, "a:b:c", 1) == 1
     assert get_nested({"a": 2}, "b", 1) == 1
+    assert get_nested({"a": 2}, "b:c", 1) == 1
 
 
 def test_update_nested():
     t = {"a": {"b": {"c": 1}}}
     update_nested(t, "a:b:c", 2)
+    update_nested(t, "d:e", 3)
     assert get_nested(t, "a:b:c") == 2
+    assert get_nested(t, "d:e") == 3
